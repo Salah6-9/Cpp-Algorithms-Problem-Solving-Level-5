@@ -1,0 +1,18 @@
+# C++ Compiled Binaries & Objects
+*.o
+*.obj
+*.out
+*.exe
+main
+main02
+0
+
+# IDE & Editor Settings
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS Generated Files
+.DS_Store
+Thumbs.db

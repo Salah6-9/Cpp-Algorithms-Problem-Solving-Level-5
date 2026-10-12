@@ -1,0 +1,109 @@
+#pragma once
+#include <string>
+#include <iostream>
+#include <limits>
+
+namespace MyIO
+{
+    int ReadPositiveNumber(std::string Message);
+    double ReadPositiveDbleNumber(std::string Message);
+    short Read_num_in_range(std::string output, int from, int to);
+    bool Ask_for_continue(std::string message);
+    std::string ReadString(const std::string &prompt);
+    void header();
+    std::string colum(int i);
+    void multp();
+}
+
+using namespace std;
+
+namespace MyIO
+{
+    
+int ReadPositiveNumber(string Message)
+{
+int Number = 0;
+do {
+cout << Message;
+cin >> Number;
+            //confirm it a number  not a string 
+            if (cin.fail())
+{
+cout<<"Invalid Input \n";
+cin.clear();
+cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            }
+        } while (Number <= 0);
+        return Number;
+    }
+
+double ReadPositiveDbleNumber(string Message)
+{
+double Number = 0;
+do {
+cout << Message;
+cin >> Number;
+            //confirm it a number  not a string 
+            if (cin.fail())
+{
+cout<<"Invalid Input \n";
+cin.clear();
+cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            }
+        } while (Number <= 0);
+        return Number;
+    }
+
+short Read_num_in_range(string output, int from, int to)
+{
+int Confirm;
+do {
+cout << output;
+cin >> Confirm;
+            //confirm it a number  not a string 
+            if (cin.fail())
+{
+cout<<"Invalid Input \n";
+cin.clear();
+cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            }
+        } while (Confirm < from || Confirm > to);
+        return Confirm;
+    }
+
+bool Ask_for_continue(string message)
+{
+        return Read_num_in_range(message, 0, 1);
+    }
+
+string ReadString(const string &prompt)
+{
+string str;
+cout << prompt;
+cin >> ws;
+getline(cin, str);
+        return str;
+    }
+
+void header()
+{
+        for (int i = 1; i <= 10; i++)
+cout << "      " << i << "\t";
+cout << "\n---------------------------------------------------------------------------------------\n";
+    }
+
+string colum(int i)
+{
+        return (i < 10) ? "    | " : "   | ";
+    }
+
+void multp()
+{
+        for (int i = 0; i < 10; i++) {
+cout << i + 1 << colum(i + 1);
+            for (int j = 0; j < 10; j++)
+cout << (i + 1) * (j + 1) << "\t";
+cout << endl;
+        }
+    }
+}
